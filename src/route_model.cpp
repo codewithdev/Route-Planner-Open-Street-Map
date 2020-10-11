@@ -11,6 +11,10 @@ RouteModel::RouteModel(const std::vector<std::byte> &xml) : Model(xml) {
     CreateNodeToRoadHashmap();
 }
 
+float distance(Node other) const{
+    return std::sqrt(std::pow((x-other.x),2)+ std::pow((y-other.y),2));
+}
+
 
 void RouteModel::CreateNodeToRoadHashmap() {
     for (const Model::Road &road : Roads()) {
